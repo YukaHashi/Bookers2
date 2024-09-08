@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def new
     # viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
-    @books = Book.new
+    @book = Book.new
   end
   
   # 投稿データの保存
@@ -22,6 +22,6 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    oarams.require(:book).permit(:book, :image, :caption)
+    params.require(:book).permit(:title, :body)
   end
 end
