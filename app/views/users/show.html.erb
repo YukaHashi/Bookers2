@@ -1,13 +1,11 @@
 <div>
     <h3><%= @user.name %></h3>
     <%= image_tag @user.get_profile_image(100,100) %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 </div>
 
 <% @book.each do |book| %>
 <div>
-    <%= link_to book_path(book.id) do %>
-        <%= image_tag book.get_image %>
-    <% end %>
     <p>投稿ユーザー画像:<%= image_tag @user.get_profile_image(100,100) %></p>
     <p>ユーザーネーム:<%= book.user.name %></p>
 </div>
