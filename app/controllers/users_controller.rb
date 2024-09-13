@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
   
+  def create
+    @user = User.new(user_params)
+    @user.user_id = current_user.id
+    if @user.save
+      redirect_to user_path
+    else
+      render :edit
+    end
+  end
+  
   private
   
   def user_params
