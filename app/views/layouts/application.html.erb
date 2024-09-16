@@ -14,7 +14,7 @@
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navber-expand=lg navbar-light">
-        <dev class="container">
+        <div class="container">
           <a class="nacbar-brand p-3" hlef="/">Booker</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-sxpanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,20 +24,20 @@
           
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', new_book_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Books', new_book_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Users', user_path(current_user.id), class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to "Sign in", new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
@@ -50,6 +50,7 @@
         <div class="flash-message <%= message_type %>"><%= message %></div>
       <% end %>
     <%= yield %>
+    
     </main>
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
