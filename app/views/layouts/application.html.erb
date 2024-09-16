@@ -46,14 +46,16 @@
       </nav>
     </header>
     <main class="mb-auto">
+      <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
     <%= yield %>
     </main>
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-8">
             <p>CopyRight Infratop.inc</p>
-            <%= image_tag('logo-white.png') %>
           </div>
         </div>
       </div>

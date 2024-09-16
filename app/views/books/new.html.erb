@@ -1,6 +1,15 @@
 <h1>New book</h1>
-<%= form_with model: @book do |f| %>
 
+<% if @book.errors.any? %>
+    <%= @book.errors.count %>件のエラーが発生しました
+    <ul>
+        <% @book.errors.full_messages.each do |massage| %>
+            <li><%= massage %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @book do |f| %>
 
     <h4>Title</h4>
     <%= f.text_field :title %>
