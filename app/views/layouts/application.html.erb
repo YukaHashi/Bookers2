@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charest="UTF-8" />
+    <link rel="stylesheet" href="/assets/application.css" />
+    
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +14,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navber-expand=lg navbar-light">
+  <body>
+    <header>
+      <nav class="navbar navber-expand=lg navbar-dark bg-dark">
         <div class="container">
-          <a class="nacbar-brand p-3" hlef="/">Booker</a>
+          <a class="navbar-brand p-3" href="/">Booker</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-sxpanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,7 +53,6 @@
         <div class="flash-message <%= message_type %>"><%= message %></div>
       <% end %>
     <%= yield %>
-    
     </main>
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
@@ -61,8 +63,5 @@
         </div>
       </div>
     </footer>
-  </body>
-</html>
-
   </body>
 </html>
