@@ -18,29 +18,46 @@
     <header>
       <nav class="navbar navber-expand=lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand p-3" href="/">Booker</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-sxpanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand p-3" href="/"><span>Booker</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
           
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-house"></i>
+              <%= link_to "Home", root_path %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', new_book_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-users"></i>
+              <%= link_to 'Users', user_path(current_user.id) %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-book"></i>
+              <%= link_to 'Books', new_book_path %>
+            </li>
+            <li class="nav-item">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "Sign in", new_user_registration_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-house"></i>
+              <%= link_to "Home", root_path %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-link"></i>
+              <%= link_to "About", homes_about_path %>
+            </li>
+            <li class="nav-item">
+              <i class="fa-solid fa-user-plus"></i>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+            <li class="nav-item">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <%= link_to "Log in", new_user_session_path %>
             </li>
             <% end %>
             </ul>
@@ -54,12 +71,10 @@
       <% end %>
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-8">
-            <p>CopyRight Infratop.inc</p>
-          </div>
+    <footer class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
         </div>
       </div>
     </footer>
