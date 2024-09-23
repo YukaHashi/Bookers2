@@ -7,6 +7,16 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
 p {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -106,5 +116,5 @@ label {
     position: relative;
     width: 100%;
     padding-right: 15px;
-    padding-lift: 15
+    padding-lift: 15px
 }

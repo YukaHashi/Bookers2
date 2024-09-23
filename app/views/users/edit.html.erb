@@ -4,7 +4,9 @@
     <meta charest="UTF-8" />
     <link rel="stylesheet" href="app/assets/stylesheet/users.scss" />
 
-    <p id="notice"><%= notice %></p>
+    <% flash.each do |message_type, message| %>
+        <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
     
     <div class="container">
         <div class="row">
