@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @user_name = @user.name
+    @user_introduction = @user.introduction
     @book = @user.books
   end
 
   def edit
-    @user = User.find(params[:id])
+    @users = User.find(params[:id])
   end
     
   def update
