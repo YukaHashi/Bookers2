@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   def top
-    @user = User.all
+    @user = current_user
+    @books = Book.all
   end
   
   def create
