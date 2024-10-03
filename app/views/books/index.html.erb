@@ -1,4 +1,3 @@
-<% if user_signed_in? %>
     <div class="container px-5 px-sm-0">
             <div class="row">
               <div class="col-md-3">
@@ -42,53 +41,14 @@
                                     <% @books.each do |book| %>
                                     <tr>
                                       <th><%= image_tag 'no_image.jpg' %></th>
-                                      <th><%= book.title %></th>
+                                      <th><%= link_to book.title, book_path(book) %></th>
                                       <th><%= book.body %></th>
                                     </tr>
                                     <% end %>
                                   </tbody>
                               </table>
-                                    <% @books.each do |book| %>
-                                    <tr>
-                                      <th></th>
-                                      <th>Title</th>
-                                      <th><%= @book_title %></th>
-                                          <%= link_to book.title, book_path(book) %>
-                                      <th>Opinion</th>
-                                      <th><%= @book_body %></th>
-                                      <th colspan="3"></th>
-                                    </tr>
-                                    <% end %>
                       </div>
 
           </div>
         </div>
 
-<% else %>
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-        <h1>welcom to
-        <i class="fa-solid fa-book"></i>
-        <strong>Bookers</strong>
-         !!</h1>
-        
-        <p>In
-        <i class="fa-solid fa-book"></i>
-        <strong>Bookers</strong>
-        ,</p>
-        
-        <p>you can share and exchange your opinions , inpressions , and emotions</p>
-        <p>about various books!</p>
-        <div class="btn-wrapper col-10 mx-suto">
-            <div class="row">
-                <a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="/users/sign_in">Log in</a>
-            </div>
-            <div class="row">
-                <a class="btn btn-success btn-sm btn-block sign_up" href="/users/sign_up">Sign up</a>
-            </div>
-        </div>
-        </div>
-      </div>
-    </div>
-<% end %>
