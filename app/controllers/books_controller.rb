@@ -18,7 +18,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book = Book.all
+    @books = Book.all
+    @user = current_user
   end
 
   def show
