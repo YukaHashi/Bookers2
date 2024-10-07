@@ -1,11 +1,15 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
-    # viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @book = Book.new
+    @user = current_user
+    @books = Book.all
   end
   
   # 投稿データの保存
   def create
+    @user = current_user
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save

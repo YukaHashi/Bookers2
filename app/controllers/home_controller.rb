@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomeController < ApplicationController
   def top
     @user = current_user
     @books = Book.all
@@ -7,7 +7,7 @@ class HomesController < ApplicationController
   def create
     @book = Book.new(Book_params)
     @book.save
-    redirect_to '/top'
+    redirect_to '/'
   end
   
   def about

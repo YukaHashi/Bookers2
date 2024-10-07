@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @user = current_user
@@ -11,13 +12,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
   end
     
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path
+    redirect_to users_path
   end
   
   def create
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     @user.user_id = current_user.id
     if @user.save
       flash[:notice] = "successfully"
-      redirect_to user_path
+      redirect_to root_path
     else
       flash.now[:alert] = "error"
       render :edit
