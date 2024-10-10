@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user.user_id = current_user.id
     if @user.save
       flash[:notice] = "successfully"
-      redirect_to root_path
+      redirect_to user_path
     else
       flash.now[:alert] = "error"
       render :edit
