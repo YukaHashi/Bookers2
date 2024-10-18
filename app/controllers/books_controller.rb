@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "successfully"
-      redirect_to books_path
+      redirect_to book_path(@book.id)
     else
       @books = Book.all
       @user = current_user
@@ -38,15 +38,15 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.update(book_params)
+    @books = Book.find(params[:id])
+    @books.update(book_params)
     redirect_to book_path
   end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to books_path(book.id)
+    redirect_to books_path(@book.id)
   end
   
   # 投稿データのストロングパラメータ
