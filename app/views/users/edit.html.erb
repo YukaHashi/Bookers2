@@ -1,7 +1,12 @@
-    <% flash.each do |message_type, message| %>
-        <div class="flash-message <%= message_type %>"><%= message %></div>
+<% if @user.errors.any? %>
+    <%= @user.errors.count %>件のエラーが発生しました
+    <ul>
+        <% @user.errors.full_messages.each do |massage| %>
+        <li><%= massage %></li>
     <% end %>
-    
+    </ul>
+<% end %>
+
     <div class="container">
         <div class="row">
             <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
