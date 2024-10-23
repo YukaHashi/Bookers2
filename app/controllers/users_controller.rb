@@ -18,10 +18,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "successfully"
       redirect_to user_path
     else
-      flash.now[:alert] = "error"
       render :edit
     end
   end
@@ -30,10 +28,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.user_id = current_user.id
     if @user.save
-      flash[:notice] = "successfully"
       redirect_to user_path
     else
-      flash.now[:alert] = "error"
       render :edit
     end
   end
