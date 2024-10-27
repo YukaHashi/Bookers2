@@ -1,16 +1,16 @@
-<% if @book.errors.any? %>
-    <%= @book.errors.count %>件のエラーが発生しました
-    <ul>
-        <% @book.errors.full_messages.each do |massage| %>
-        <li><%= massage %></li>
-    <% end %>
-    </ul>
-<% end %>
+    <div class="container px-5 px-sm-0">
+            <div class="row">
+              <div class="col-md-3">
+                
+              <% if @book.errors.any? %>
+              <%= @book.errors.count %>error prohibited this obj from being saved:
+                <ul>
+                <% @book.errors.full_messages.each do |massage| %>
+                <li><%= massage %></li>
+                <% end %>
+                </ul>
+                <% end %>
 
-
-<div class="container px-5 px-sm-0">
-    <div class="row">
-                  <div class="col-md-3">
                       <h2>User info</h2>
                       <img src="<%= asset_path('no_image.jpg') %>">
                       <table class="table">
