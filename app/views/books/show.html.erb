@@ -43,13 +43,22 @@
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <th><%= image_tag 'no_image.jpg' %><br>
-                                          <%=link_to @user.name, user_path(@user) %>
+                                      <th><%= link_to user_path(@user) do %>
+                                          <%= image_tag @books.user.get_profile_image(100, 100) %>
+                                          <% end %>
+                                        <br>
+                                          <%= link_to @user.name, user_path(@user) %>
                                       </th>
                                       <th><%= link_to @books.title, edit_book_path(@books) %></th>
                                       <th><%= @books.body %></th>
-                                      <th><%= link_to "Edit", edit_book_path(@books), class: "btn btn-sm btn-success edit_book_149530" %></th>
-                                      <th><%= link_to "Destroy",book_path(@books), method: :delete, class: "btn btn-sm btn-danger destroy_book_149530", "data-confirm" => "本当に消しますか？" %></th>
+                                      <th><% if @books.user == current_user %>
+                                          <%= link_to "Edit", edit_book_path(@books), class: "btn btn-sm btn-success edit_book_149530" %>
+                                          <% end %>
+                                      </th>
+                                      <th><% if @books.user == current_user %>
+                                          <%= link_to "Destroy",book_path(@books), method: :delete, class: "btn btn-sm btn-danger destroy_book_149530", "data-confirm" => "本当に消しますか？" %>
+                                          <% end %>
+                                      </th>
                                     </tr>
                                   </tbody>
                               </table>
